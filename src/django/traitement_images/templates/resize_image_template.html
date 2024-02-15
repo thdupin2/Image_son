@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+        <title>Resize image</title>
+    </head>
+    <body>
+
+        {% include 'header_template.html' %}
+
+        <div class="body">
+            <div style="margin-top: 20px;">
+                <span class="title-2"><kbd>4. Redimensionnement d'une image :</kbd></span>
+                <form id="form" enctype="multipart/form-data" action="{% url 'resize-image' %}" method="post">
+                    {% csrf_token %}
+                    {{form}}
+                    <label for="width">Largeur :</label>
+                    <input type="number" name="width" id="width" min="50" max="1000">
+                    <label for="height">Hauteur :</label>
+                    <input type="number" name="height" id="height" min="50" max="1000">
+                    <div class="submit-container">
+                        <input class="submit" type="submit" value="Upload">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        {% if image_url and resized_image_url %}
+            <img src="{% static image_url %}" alt="Image originale">
+            <img src="{% static resized_image_url %}" alt="Image en noir et blanc">
+        {% endif %}
+    </body>
+</html>

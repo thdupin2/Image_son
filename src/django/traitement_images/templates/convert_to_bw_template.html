@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+        <title>Convert to BW</title>
+    </head>
+    <body>
+        
+        {% include 'header_template.html' %}
+
+        <div class="body">
+            <div style="margin-top: 20px;">
+                <span class="title-2"><kbd>2. Converison d'image en noir et blanc</kbd></span>
+                <form class="form" enctype="multipart/form-data" action="{% url 'convert-to-bw' %}" method="post">
+                    {% csrf_token %}
+                    {{form}}
+                    <div class="submit-container">
+                        <input class="submit" type="submit" value="Upload">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        {% if image_url and bw_image_url %}
+        <div class="result-container">
+            <img src="{% static image_url %}" style="width: 500px; height: 500px;" alt="Image originale">
+            <img src="{% static bw_image_url %}" style="width: 500px; height: 500px;" alt="Image en noir et blanc">
+        </div>
+        {% endif %}
+    </body>
+</html>

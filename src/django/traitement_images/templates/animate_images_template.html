@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+        <title>Animate images</title>
+    </head>
+    <body>
+
+        {% include 'header_template.html' %}
+
+        <div class="body">
+            <div style="margin-top: 20px;">
+                <span class="title-2"><kbd>7. Animation d'images :</kbd></span>
+                <form id="form" enctype="multipart/form-data" action="{% url 'animate-images' %}" method="post">
+                    {% csrf_token %}
+                    <label for="files_input">Fichiers à traiter :</label>
+                    <input type="file" name="images" id="files_input" multiple>
+                    <div class="submit-container">
+                        <input class="submit" type="submit" value="Upload">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script>
+            console.log('animate: ', '{{ images_url }}')
+        </script>
+
+        {% if images_urls %}
+            {% for image_url in images_urls %}
+                <img src="{% static image_url %}">
+            {% endfor %}
+            <img src="{% static animated_image_url %}">
+        {% endif %}
+    </body>
+</html>

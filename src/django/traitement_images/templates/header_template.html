@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+        <title>Home</title>
+    </head>
+
+    <body>
+        <div class="header">
+            <span style="font-size: 40px !important;">Mini projet : Image Son et Visualisation</span>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'convert-to-bw' %}">Convert to BW</a></li>
+                    <li><a href="{% url 'apply-grey' %}">Apply grayscale</a></li>
+                    <li><a href="{% url 'resize-image' %}">Resizing</a></li>
+                    <li><a href="{% url 'align-images-horizontal' %}">Aligning horizontally</a></li>
+                    <li><a href="{% url 'align-images-vertical' %}">Aligning vertically</a></li>
+                    <li><a href="{% url 'merge-images' %}">Merging</a></li>
+                    <li><a href="{% url 'animate-images' %}">Animating</a></li>
+                </ul>
+            </nav>
+        </div>
+    </body>
+</html>
