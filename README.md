@@ -1,3 +1,4 @@
 # Image_son
-Projet final pour la matière Image et son
-[![Django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=green)]
+
+## Projet final développé en :
+[![Django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=green)](https://www.djangoproject.com/start/)
