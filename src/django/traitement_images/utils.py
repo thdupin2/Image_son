@@ -79,9 +79,9 @@ def merge_images(image_path1, image_path2, ratio):
 
     # Redimensionner les images pour qu'elles aient la même taille si nécessaire
     if image1.size != image2.size:
-        min_width = min(image1.size[0], image2.size[0])
-        min_height = min(image1.size[1], image2.size[1])
-        target_size = (min_width, min_height)
+        max_width = max(image1.size[0], image2.size[0])
+        max_height = max(image1.size[1], image2.size[1])
+        target_size = (max_width, max_height)
         image1 = image1.resize(target_size)
         image2 = image2.resize(target_size)
 
