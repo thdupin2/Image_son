@@ -73,11 +73,11 @@ def align_images(image_path1, image_path2, align='horizontal'):
 
     return combined_image
 
-def merge_images(image_path1, image_path2, ratio):
+def merge_images(image_path1, image_path2, ratio, position1, position2):
+
     image1 = Image.open(image_path1)
     image2 = Image.open(image_path2)
 
-    # Redimensionner les images pour qu'elles aient la même taille si nécessaire
     if image1.size != image2.size:
         max_width = max(image1.size[0], image2.size[0])
         max_height = max(image1.size[1], image2.size[1])
@@ -88,9 +88,21 @@ def merge_images(image_path1, image_path2, ratio):
     if image1.mode != image2.mode:
         image2 = image2.convert(image1.mode)
 
-    # Fusionner les images
-    blended_image = Image.blend(image1, image2, ratio)
-    return blended_image
+    if image1.mode != 'RGBA':
+        image1 = image1.convert('RGBA')
+
+    if image2.mode != 'RGBA':
+        image2 = image2.convert('RGBA')
+
+    new_image = Image.new('RGBA', image1.size)
+
+    new_image.paste(image1, position1)
+
+    blended_image = Image.blend(Image.new('RGBA', image2.size), image2, ratio)
+
+    new_image.paste(blended_image, position2, blended_image)
+
+    return new_image
     
 
 def animate_images(image_paths, output_file, fps=24, slowdown_factor=20):

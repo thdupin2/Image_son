@@ -256,7 +256,16 @@ def merge_2_images(request):
                 image_url_2 = fs.url(old_filename_2)
 
                 ratio = request.POST.get('ratio')
-                merged_images = merge_images(fs.path(old_filename), fs.path(old_filename_2), ratio=float(ratio))
+                position1_x = request.POST.get('position1_x')
+                position1_y = request.POST.get('position1_y')
+                position2_x = request.POST.get('position2_x')
+                position2_y = request.POST.get('position2_y')
+                ratio = float(ratio)
+                position1_x = int(position1_x)
+                position1_y = int(position1_y)
+                position2_x = int(position2_x)
+                position2_y = int(position2_y)
+                merged_images = merge_images(fs.path(old_filename), fs.path(old_filename_2), ratio=ratio, position1=(position1_x, position1_y), position2=(position2_x, position2_y))
                 merged_filename = f"merged_{int(float(ratio) * 100)}%_{old_filename}_{old_filename_2}"
                 if fs.exists(merged_filename):
                     fs.delete(merged_filename)

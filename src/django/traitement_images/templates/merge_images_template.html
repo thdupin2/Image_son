@@ -17,18 +17,24 @@
                 <form class="form" enctype="multipart/form-data" action="{% url 'merge-images' %}" method="post">
                     {% csrf_token %}
                     {{form}}
-                    <label for="num_shades">Ratio de fusion (de 0.1 à 1) :</label>
-                    <input type="number" name="ratio" id="ratio" step="0.01" min="0.1" max="1">
+                    <div style="display: flex; flex-direction: column; width: 300px; gap: 10px;">
+                        <label for="ratio">Ratio de fusion (de 0.1 à 1) :</label>
+                        <input type="number" name="ratio" id="ratio" step="0.01" min="0.1" max="1">
+                        <label for="position1_x">Position de X de l'image 1 :</label>
+                        <input type="number" name="position1_x" id="position1_x" required>
+                        <label for="position1_y">Position de Y de l'image 1 :</label>
+                        <input type="number" name="position1_y" id="position1_y" required>
+                        <label for="position2_x">Position de X de l'image 2 :</label>
+                        <input type="number" name="position2_x" id="position2_x" required>
+                        <label for="position2_y">Position de Y de l'image 2 :</label>
+                        <input type="number" name="position2_y" id="position2_y" required>
+                    </div>
                     <div class="submit-container">
                         <input class="submit" type="submit" value="Upload">
                     </div>
                 </form>
             </div>
         </div>
-
-        <script>
-            console.log('merge : {{image_url}} + {{image_url_2}} + {{merged_image_url}}')
-        </script>
 
         {% if image_url and image_url_2 and merged_image_url %}
             <img src="{% static image_url %}">
