@@ -94,15 +94,19 @@ def merge_images(image_path1, image_path2, ratio, position1, position2):
     if image2.mode != 'RGBA':
         image2 = image2.convert('RGBA')
 
+    # Créer une nouvelle image vierge avec la taille de l'image 1
     new_image = Image.new('RGBA', image1.size)
 
+    # Coller l'image 1 à la position spécifiée par position1
     new_image.paste(image1, position1)
 
-    blended_image = Image.blend(Image.new('RGBA', image2.size), image2, ratio)
+    # Coller l'image fusionnée à la position spécifiée par position2
+    new_image.paste(image2, position2)
 
-    new_image.paste(blended_image, position2, blended_image)
+    # Fusionner les images
+    blended_image = Image.blend(new_image, image1, ratio)
 
-    return new_image
+    return blended_image
     
 
 def animate_images(image_paths, output_file, fps=24, slowdown_factor=20):
