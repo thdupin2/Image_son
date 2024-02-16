@@ -7,3 +7,27 @@
 [![Python](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue)](https://www.python.org/doc/)
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://html.spec.whatwg.org/)
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://www.w3.org/Style/CSS/)
+
+### 1. Clone the project
+```sh
+git clone https://github.com/thdupin2/Image_son.git
+```
+
+### 2. Start the project
+- cd in the folder :
+  ```sh
+  cd src/django
+  ```
+
+- run the command :
+  ```sh
+  python manage.py runserver
+  ```
+
+- go to your internet browser and paste :
+  ```sh
+  http://localhost:8000/traitement_images/home/
+  ```
+
+### Contributor
+[![Théo](https://avatars.githubusercontent.com/u/120021096?v=4)](https://github.com/thdupin2)
