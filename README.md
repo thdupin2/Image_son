@@ -30,4 +30,4 @@ git clone https://github.com/thdupin2/Image_son.git
   ```
 
 ### Contributor
-[![Théo](https://images.weserv.nl/?url=avatars.githubusercontent.com/u/92861841?v=4&h=75&w=75&fit=cover&mask=circle&maxage=7d)](https://github.com/thdupin2)
+[![Théo](https://images.weserv.nl/?url=https://avatars.githubusercontent.com/u/120021096?v=4&h=75&w=75&fit=cover&mask=circle&maxage=7d)(https://github.com/thdupin2)
